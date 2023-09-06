@@ -1,5 +1,4 @@
 # citrixlab
 CitrixLab Official Landing Page
 
-Date Created 
-September 7, 2023
+Est. Sept.2023
