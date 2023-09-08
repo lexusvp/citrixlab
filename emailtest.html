@@ -9,10 +9,10 @@
 </head>
 <body>
     <h1>Email Signup Test</h1>
-    <form id="signup-form">
+    <form id="signup-form" action="/submit" method="post">
         <div>
             <label for="email">Email Address:</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
         </div>
         <div>
             <input type="submit" value="Sign Up!">
@@ -25,24 +25,21 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('signup-form');
-            const resultDiv = document.getElementById('result'); // Get the result div
+            const resultDiv = document.getElementById('result');
 
             form.addEventListener('submit', async function (event) {
                 event.preventDefault();
 
                 const email = document.getElementById('email').value;
 
-                // Create an object with the email
                 const emailData = {
                     email: email
                 };
 
-                // Convert the object to JSON
                 const jsonData = JSON.stringify(emailData);
 
                 try {
-                    // Send a POST request to save the email data
-                    const response = await fetch('/license/js/encryption/emailholder.json', {
+                    const response = await fetch('/submit', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -54,25 +51,12 @@
                         throw new Error('Failed to save email.');
                     }
 
-                    /*
-                    const scriptElement = document.createElement('script');
-                    scriptElement.src = '/license/js/citrixLab-send-email.js'; // Replace 'path-to-another-script.js' with the actual path to your script
-                    scriptElement.onload = function() {
-                        // Code to run after the script has loaded
-                        // You can call functions or perform actions defined in '/license/js/citrixLab-send-email.js' here
-                        // For example:
-                        // callFunctionFromAnotherScript();
-                    };
-                    document.head.appendChild(scriptElement);
-                    */
-
-                    // Display a success message
                     resultDiv.innerHTML = '<p>Email saved successfully!</p>';
                 } catch (error) {
                     console.error('An error occurred:', error);
 
-                    // Redirect to the GitHub 404 page (for testing purposes)
-                    window.location.href = 'https://github.com/404';
+                    // Redirect or handle the error message on the client side as needed
+                    resultDiv.innerHTML = `<p>An error occurred: ${error.message}</p>`;
                 }
             });
         });
