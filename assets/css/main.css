@@ -9,6 +9,13 @@
 
 /* Reset */
 
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh; /* Adjust the height as needed */
+}
+
 /* Based on meyerweb.com/eric/tools/css/reset (v2.0 | 20110126 | License: public domain) */
 
 	html, body, div, span, applet, object,
