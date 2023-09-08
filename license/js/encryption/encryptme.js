@@ -22,6 +22,7 @@ async function main() {
     const filePath = '/encryption/crptograph-auth.txt';
     const fileContent = await fs.readFile(filePath, 'utf8');
 
+/*
     // Read the last value from "count.JSON" and increment it
     const countFilePath = '/license/database/count.JSON';
     const countData = await fs.readFile(countFilePath, 'utf8');
@@ -32,6 +33,32 @@ async function main() {
     // Update "count.JSON" with the new value of 'i'
     countObject.lastValue = lastValue;
     await fs.writeFile(countFilePath, JSON.stringify(countObject, null, 2), 'utf8');
+*/
+
+  const countFilePath = '/license/database/count.JSON';
+
+  // Read the current count from the text file (default to 0 if not set)
+  let count = 0;
+  try {
+      count = parseInt(fs.readFileSync(countFilePath, 'utf8')) || 0;
+  } catch (error) {
+      // Handle errors if the file doesn't exist or is not valid
+      console.error('Error reading count file:', error.message);
+  }
+
+  // Increment the count
+      count++;
+      let lastValue = count;
+
+  // Write the updated count back to the text file
+  try {
+      fs.writeFileSync(countFilePath, count.toString(), 'utf8');
+      console.log('Updated count:', count);
+  } catch (error) {
+      // Handle errors if unable to write the count back to the file
+      console.error('Error writing count file:', error.message);
+  }
+
 
     // Encrypt the file content (e.g., using AES encryption)
     const originalSequence = 'Wkbae1Ksc5OtyLgMV2U9iRWlpD3wTHFnmB0QJoG8EXNjP7ZzdrvXY4fINhquSA6cxYR';
