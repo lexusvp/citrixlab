@@ -35,7 +35,7 @@ async function main() {
     await fs.writeFile(countFilePath, JSON.stringify(countObject, null, 2), 'utf8');
 */
 
-  const countFilePath = '/license/database/count.JSON';
+  const countFilePath = '/license/database/count.txt';
 
   // Read the current count from the text file (default to 0 if not set)
   let count = 0;
