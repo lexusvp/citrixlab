@@ -68,64 +68,65 @@
 
     <script>
 
-    const data = 'failed to get the data';
+    let fetchedData = 'Failed to get the data'; // Renamed the variable
+
     fetch('/license/js/encryption/cryptograph-auth.txt')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.text();
-  })
-  .then(data => {
-    // 'data' contains the text content of the URL
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-    data = 'There was a problem with the fetch operation:', error;
-  });
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(data => {
+        // 'data' contains the text content of the URL
+        fetchedData = data; // Store the fetched data in the 'fetchedData' variable
+        console.log(fetchedData);
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        fetchedData = 'There was a problem with the fetch operation: ' + error.message;
+      });
 
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('signup-form');
-            const resultDiv = document.getElementById('result');
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('signup-form');
+        const resultDiv = document.getElementById('result');
 
-            form.addEventListener('submit', async function (event) {
-                event.preventDefault();
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
 
-                const email = document.getElementById('email').value;
+            const email = document.getElementById('email').value;
 
-                const emailData = {
-                    email: email
-                };
+            const emailData = {
+                email: email
+            };
 
-                const jsonData = JSON.stringify(emailData);
+            const jsonData = JSON.stringify(emailData);
 
-                try {
-                    const response = await fetch('/submit', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: jsonData
-                    });
+            try {
+                const response = await fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: jsonData
+                });
 
-                    if (!response.ok) {
-                        //throw new Error('Failed to save email.' & data);
-                        throw new Error(data);
-                    }
-        
-                    //resultDiv.innerHTML = '<p>Email saved successfully! </p>'  & data;
-                    resultDiv.innerHTML = data;
-                } catch (error) {
-                    console.error('An error occurred:', error);
-
-                    // Redirect or handle the error message on the client side as needed
-                    //resultDiv.innerHTML = `<p>An error occurred: ${error.message}</p>`  & data;;
-                    resultDiv.innerHTML = data;;
+                if (!response.ok) {
+                    //throw new Error('Failed to save email.' & data);
+                    throw new Error(fetchedData);
                 }
-            });
+
+                //resultDiv.innerHTML = '<p>Email saved successfully! </p>'  & data;
+                resultDiv.innerHTML = fetchedData;
+            } catch (error) {
+                console.error('An error occurred:', error);
+
+                // Redirect or handle the error message on the client side as needed
+                //resultDiv.innerHTML = `<p>An error occurred: ${error.message}</p>`  & data;;
+                resultDiv.innerHTML = fetchedData;;
+            }
         });
+    });
     </script>
 </body>
 </html>
