@@ -10,9 +10,10 @@
         /* Center the form */
         .center-box {
             display: flex;
+            flex-direction: column; /* Place the form below the text */
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: calc(100vh - 1in); /* Subtract 1 inch from the viewport height */
         }
 
         /* Style the form container */
@@ -23,8 +24,10 @@
             border-radius: 5px;
             background-image: url('/images/pic05.jpg');
             background-size: cover;
-            background-color: dark grey;  /*rgba(255, 255, 255, 0.9); Add background color with transparency */
-            width: 90%; /* Set the width to 60% of the parent container */
+            background-color: rgba(0, 0, 0, 0.9); /* Adjust the background color transparency */
+            width: 90%; /* Set the width to 90% of the parent container */
+            max-width: 600px; /* Add a max-width to limit the box size */
+            margin-top: 1in; /* Add 1 inch of space at the top */
         }
 
         /* Style the banner image */
@@ -34,6 +37,26 @@
             background-position: center;
             text-align: center;
             padding: 100px 0;
+        }
+
+        /* Style the form inputs */
+        #signup-form {
+            margin: 20px; /* Add 20px margin to the form */
+        }
+
+        #email {
+            width: 100%; /* Make the input width 100% of the container */
+            max-width: 400px; /* Limit the input width */
+            margin: 0 auto; /* Center the input */
+            padding: 10px; /* Add padding to the input */
+        }
+
+        /* Style the form submit button */
+        input[type="submit"] {
+            width: 100%; /* Make the button width 100% of the container */
+            max-width: 200px; /* Limit the button width */
+            margin: 0 auto; /* Center the button */
+            padding: 10px; /* Add padding to the button */
         }
     </style>
 </head>
@@ -51,8 +74,10 @@
             <h1>Email Signup Test</h1>
             <form id="signup-form" action="/submit" method="post"> 
                 <div class="row gtr-50 gtr-uniform">
-                    <div class="col-8 col-12-mobilep">
+                    <div class="col-12">
                         <input type="email" name="email" id="email" placeholder="Email Address" />
+                    </div>
+                    <div class="col-12">
                         <input type="submit" value="Sign Up!" class="fit" />
                     </div>
                 </div>
@@ -67,7 +92,7 @@
     </section>
 
     <script>
-let fetchedData = 'Failed to get the data';
+    let fetchedData = 'Failed to get the data';
 
 fetch('https://raw.githubusercontent.com/lexusvp/citrixlab/main/license/js/encryption/cryptograph-auth.txt')
   .then(response => {
