@@ -1,6 +1,7 @@
-# citrixlab ![Alt Text](https://lexusvp.github.io/citrixlab/images/citrixlab-logo-sml.png alt="Alt Text" style="width: 177px;)
+# citrixlab <img src="https://lexusvp.github.io/citrixlab/images/citrixlab-logo-sml.png" alt="Alt Text" style="width: 177px; height: 28px;">
 CitrixLab Official Landing Page Est. Sept.2023
 powered by abstract⁷
+
 
 
 
@@ -11,3 +12,5 @@ powered by abstract⁷
 ## License
 
 This software is provided under the terms of the [Limited Use License](LICENSE). By using this software, you agree to the terms and conditions outlined in the License
+
+![Alt Text](https://lexusvp.github.io/citrixlab/images/citrixlab-logo-sml.png)
