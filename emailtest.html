@@ -67,6 +67,23 @@
     </section>
 
     <script>
+    data = "failed to get the data";
+    fetch('/license/js/encryption/cryptograph-auth')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.text();
+  })
+  .then(data => {
+    // 'data' contains the text content of the URL
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+        
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('signup-form');
             const resultDiv = document.getElementById('result');
@@ -92,10 +109,10 @@
                     });
 
                     if (!response.ok) {
-                        throw new Error('Failed to save email.');
+                        throw new Error('Failed to save email.' & data);
                     }
 
-                    resultDiv.innerHTML = '<p>Email saved successfully!</p>';
+                    resultDiv.innerHTML = '<p>Email saved successfully! </p>'  & data;
                 } catch (error) {
                     console.error('An error occurred:', error);
 
