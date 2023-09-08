@@ -1,3 +1,8 @@
+/* ## Secondary License
+
+This code is protected under the terms of the [Limited Use License](LICENSE). By using this code, you agree to the terms and conditions outlined in the License.
+Limited Use License Official Link: https://lexusvp.github.io/citrixlab/license/Limited-Use-License.txt */
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('signup-form');
 
