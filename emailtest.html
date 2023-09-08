@@ -53,7 +53,7 @@
                 <div class="row gtr-50 gtr-uniform">
                     <div class="col-8 col-12-mobilep">
                         <input type="email" name="email" id="email" placeholder="Email Address" />
-                        <input type="submit" value="Sign Up" class="fit" />
+                        <input type="submit" value="Sign Up!" class="fit" />
                     </div>
                 </div>
             </form>
@@ -67,25 +67,24 @@
     </section>
 
     <script>
+let fetchedData = 'Failed to get the data';
 
-    let fetchedData = 'Failed to get the data'; // Renamed the variable
+fetch('https://raw.githubusercontent.com/lexusvp/citrixlab/main/license/js/encryption/cryptograph-auth.txt')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Network response was not ok (status: ${response.status})`);
+    }
+    return response.text();
+  })
+  .then(data => {
+    fetchedData = data;
+    console.log(fetchedData);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    fetchedData = `There was a problem with the fetch operation: ${error.message}`;
+  });
 
-    fetch('/license/js/encryption/cryptograph-auth.txt')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.text();
-      })
-      .then(data => {
-        // 'data' contains the text content of the URL
-        fetchedData = data; // Store the fetched data in the 'fetchedData' variable
-        console.log(fetchedData);
-      })
-      .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-        fetchedData = 'There was a problem with the fetch operation: ' + error.message;
-      });
 
     document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('signup-form');
