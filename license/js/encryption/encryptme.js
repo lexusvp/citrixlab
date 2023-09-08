@@ -2,7 +2,7 @@
 
 This code is protected under the terms of the [Limited Use License](LICENSE). By using this code, you agree to the terms and conditions outlined in the License.
 Limited Use License Official Link: https://lexusvp.github.io/citrixlab/license/Limited-Use-License.txt */
-
+try {
 const shuffleString = (inputString) => {
   const array = inputString.split('');
   for (let i = array.length - 1; i > 0; i--) {
@@ -78,3 +78,12 @@ async function main() {
 }
 
 main();
+
+// OPEN 404.html
+} catch (error) {
+  // An error occurred
+  console.error('An error occurred:', error);
+  
+  // Redirect to the GitHub 404 page
+  window.location.href = 'https://github.com/404';
+}
