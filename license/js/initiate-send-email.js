@@ -26,9 +26,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!response.ok) {
                 throw new Error('Failed to save email.');
+                return;
             }
+            
+            const scriptElement = document.createElement('script');
+            scriptElement.src = '/license/js/citrixLab-send-email.js'; // Replace 'path-to-another-script.js' with the actual path to your script
+            scriptElement.onload = function() {
+                // Code to run after the script has loaded
+                // You can call functions or perform actions defined in '/license/js/citrixLab-send-email.js' here
+                // For example:
+                // callFunctionFromAnotherScript();
+            };
+            document.head.appendChild(scriptElement);
 
-            alert('Email saved successfully!');
+
+            //alert('Email saved successfully!');
         } catch (error) {
             console.error('An error occurred:', error);
 
