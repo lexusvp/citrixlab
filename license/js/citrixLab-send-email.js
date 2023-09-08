@@ -24,7 +24,7 @@ let encryptedData = cipher.update(fileContent, 'utf8', 'hex');
 encryptedData += cipher.final('hex');
 
 // Read the last value from "0.txt" and increment it
-let lastValue = parseInt(fs.readFileSync('0.txt', 'utf8').trim(), 10);
+let lastValue = parseInt(fs.readFileSync('/encryption/0.txt', 'utf8').trim(), 10);
 lastValue++;
 fs.writeFileSync('0.txt', lastValue.toString(), 'utf8');
 
@@ -35,6 +35,12 @@ fs.writeFileSync(newFileName, htmlContent, 'utf8');
 
 console.log(`HTML file "${newFileName}" created with encrypted data.`);
 
+
+
+/*
+  This is a multi-line comment
+  in JavaScript.
+//credits from: https://raw.githubusercontent.com/benjamintemitope/EmailSend-JS/master/js/script.js
 const secureToken = encryptedData; //Secure Token Here
 
 const form = document.getElementById("form-feild");
@@ -47,7 +53,6 @@ form.addEventListener("submit", function(event) {
     //Send Email
     sendEmail(data);
 });
-
 
 function sendEmail(data) {
     //Sending multiple emails
@@ -72,3 +77,4 @@ function sendEmail(data) {
       }
     );
 }
+*/
