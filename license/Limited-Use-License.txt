@@ -1,0 +1,31 @@
+Limited Use License
+
+This Limited Use License ("License") is entered into by and between the developer using the software (hereinafter referred to as "Developer") and Soo Ji Dano (abstract⁷), the author of the software and repository located at https://github.com/lexusvp/citrixlab/ (hereinafter referred to as the "Repository").
+
+By using the software contained in the Repository, the Developer agrees to the following terms:
+
+1. Restricted Use of Private API Keys and Security Codes:
+   a. The Developer shall not use, access, or attempt to access any private API keys, security codes, or any other sensitive information contained within the software without express authorization from the Repository's owner.
+   b. The Developer shall not disclose, share, or distribute any private API keys, security codes, or any other sensitive information obtained from the software to any third party without the explicit consent of the Repository's owner.
+
+2. Authority to Access Restricted Information:
+   a. The Developer acknowledges that access to private API keys, security codes, and other restricted information within the software may require separate, documented authorization by the Repository's owner.
+   b. The Developer shall adhere to any access control policies and procedures defined in public documents provided by the Repository's owner.
+
+3. Disclaimer of Warranty:
+   a. The software is provided "as is" and without warranty of any kind, express or implied, including, but not limited to, the warranties of merchantability, fitness for a particular purpose, and non-infringement.
+   b. In no event shall the Repository's owner be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+
+4. Governing Law and Jurisdiction:
+   a. This License shall be governed by and construed in accordance with Republic Act No. 10175, the Cybercrime Prevention Act of 2012, of the Republic of the Philippines.
+   b. Any legal disputes arising from or related to this License shall be subject to the exclusive jurisdiction of the courts in the Republic of the Philippines.
+
+5. Effective Date and Changes:
+   a. This License is effective as of September 7, 2023, and shall remain in effect until further notice of any changes made or announced by the Repository's owner.
+   b. Any modifications or amendments to this License shall be communicated through the Repository or other official channels by the Repository's owner.
+
+By using the software, the Developer acknowledges that they have read, understood, and agreed to the terms and conditions of this License.
+
+For questions or concerns regarding this License, please contact Soo Ji Dano (abstract⁷) at soojidano@gmail.com.
+
+This License is effective as of September 7, 2023.
