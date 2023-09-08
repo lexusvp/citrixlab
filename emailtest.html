@@ -6,21 +6,43 @@
     <title>Email Signup Test</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="icon" href="citrixlab logo.ico" type="image/x-icon">
+    <style>
+        /* Center the form */
+        .center-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Style the form container */
+        .form-container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
-    <h1>Email Signup Test</h1>
-    <form id="signup-form" action="/submit" method="post">
-        <div>
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <div class="center-box">
+        <div class="form-container">
+            <h1>Email Signup Test</h1>
+            <form id="signup-form" action="/submit" method="post">
+                <div>
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div>
+                    <input type="submit" value="Sign Up!">
+                </div>
+            </form>
+            
+            <!-- This div will be used to display the result -->
+            <div id="result"></div>
         </div>
-        <div>
-            <input type="submit" value="Sign Up!">
-        </div>
-    </form>
-    
-    <!-- This div will be used to display the result -->
-    <div id="result"></div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
