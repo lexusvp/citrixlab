@@ -12,5 +12,3 @@ powered by abstract⁷
 ## License
 
 This software is provided under the terms of the [Limited Use License](LICENSE). By using this software, you agree to the terms and conditions outlined in the License
-
-//![Alt Text](https://lexusvp.github.io/citrixlab/images/citrixlab-logo-sml.png)
