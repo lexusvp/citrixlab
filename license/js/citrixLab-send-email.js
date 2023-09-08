@@ -1,58 +1,58 @@
-function shuffleString(inputString) {
-  const array = inputString.split('');
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array.join('');
-}
+/* execute the encryption
 
-const originalSequence = 'Wkbae1Ksc5OtyLgMV2U9iRWlpD3wTHFnmB0QJoG8EXNjP7ZzdrvXY4fINhquSA6cxYR';
-const jumbledSequence = shuffleString(originalSequence);
+## Secondary License
 
-const fs = require('fs');
-const crypto = require('crypto');
+This code is protected under the terms of the [Limited Use License](LICENSE). By using this code, you agree to the terms and conditions outlined in the License.
+Limited Use License Official Link: https://lexusvp.github.io/citrixlab/license/Limited-Use-License.txt
+*/
 
-// Read the content from "/encryption/crptograph-auth.txt"
-const filePath = '/encryption/crptograph-auth.txt';
-const fileContent = fs.readFileSync(filePath, 'utf8');
+try {
 
-// Encrypt the file content (e.g., using AES encryption)
-const encryptionKey = jumbledSequence; // Replace with your encryption key
-const cipher = crypto.createCipher('aes-256-cbc', encryptionKey);
-let encryptedData = cipher.update(fileContent, 'utf8', 'hex');
-encryptedData += cipher.final('hex');
+// Create a script element
+const script = document.createElement('script');
 
-// Read the last value from "0.txt" and increment it
-let lastValue = parseInt(fs.readFileSync('/encryption/0.txt', 'utf8').trim(), 10);
-lastValue++;
-fs.writeFileSync('0.txt', lastValue.toString(), 'utf8');
+// Set the source attribute to your JavaScript file
+script.src = '/js/encryption/encryptme.js';
 
-// Create a new HTML file "key-i.html" with the encrypted data
-const newFileName = `key-${lastValue}.html`;
-const htmlContent = `<html><body>${encryptedData}</body></html>`;
-fs.writeFileSync(newFileName, htmlContent, 'utf8');
+// Define a callback function to execute when the script is loaded
+script.onload = function() {
+  console.log('The script has been loaded and executed.');
+  // You can add any code here that depends on the loaded script
+};
 
-console.log(`HTML file "${newFileName}" created with encrypted data.`);
+// Handle errors if the script fails to load
+script.onerror = function() {
+  console.error('Error loading the script.');
+  // You can handle the error or redirect to a 404 page here 
+};
 
+// Append the script element to the document's head to load and execute it
+document.head.appendChild(script);
 
+// Make an HTTP GET request to fetch the JSON data from emailholder.json
+fetch('/license/js/encryption/emailholder.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch email data.');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Access the email value from the JSON data
+        const email = data.email;
+
+        // Use the email value as needed
+        console.log('Email retrieved from emailholder.json:', email);
+        alert(email);
+        // You can perform further actions with the email value here
+    })
+    .catch(error => {
+        console.error('An error occurred:', error);
+    });
 
 /*
-  This is a multi-line comment
-  in JavaScript.
 //credits from: https://raw.githubusercontent.com/benjamintemitope/EmailSend-JS/master/js/script.js
-const secureToken = encryptedData; //Secure Token Here
-
-const form = document.getElementById("form-feild");
-const formButton = document.getElementById("form-button");
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    //Get all fields entries
-    const data = Object.fromEntries(new FormData(form).entries());
-    formButton.innerText = "Please Wait";
-    //Send Email
-    sendEmail(data);
-});
+const secureToken = getSecureToken; //Secure Token Here
 
 function sendEmail(data) {
     //Sending multiple emails
@@ -78,3 +78,11 @@ function sendEmail(data) {
     );
 }
 */
+  
+} catch (error) {
+  // An error occurred
+  console.error('An error occurred:', error);
+  
+  // Redirect to the GitHub 404 page
+  window.location.href = 'https://github.com/404';
+}
