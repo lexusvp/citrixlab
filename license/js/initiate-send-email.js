@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
             
+            /*
             const scriptElement = document.createElement('script');
             scriptElement.src = '/license/js/citrixLab-send-email.js'; // Replace 'path-to-another-script.js' with the actual path to your script
             scriptElement.onload = function() {
@@ -43,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 // callFunctionFromAnotherScript();
             };
             document.head.appendChild(scriptElement);
+            */
 
-
-            //alert('Email saved successfully!');
+            alert('Email saved successfully!');
         } catch (error) {
             console.error('An error occurred:', error);
 
