@@ -1,4 +1,4 @@
-# citrixlab by abstract⁷
+# citrixlab
 CitrixLab Official Landing Page Est. Sept.2023
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/lexusvp/Ellipsis?style=for-the-badge)
@@ -8,3 +8,5 @@ CitrixLab Official Landing Page Est. Sept.2023
 ## License
 
 This software is provided under the terms of the [Limited Use License](LICENSE). By using this software, you agree to the terms and conditions outlined in the License.
+
+citrixlab is powered by abstract⁷
