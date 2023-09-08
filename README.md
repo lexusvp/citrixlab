@@ -7,4 +7,4 @@ CitrixLab Official Landing Page Est. Sept.2023
 
 ## License
 
-This software is provided under the terms of the [Limited Use License](SECONDARY LICENSE). By using this software, you agree to the terms and conditions outlined in the License.
+This software is provided under the terms of the [Limited Use License](LICENSE). By using this software, you agree to the terms and conditions outlined in the License.
