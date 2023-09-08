@@ -1,4 +1,4 @@
-# citrixlab ![Alt Text](https://lexusvp.github.io/citrixlab/images/citrixlab-logo-sml.png)
+# citrixlab ![Alt Text](https://lexusvp.github.io/citrixlab/images/citrixlab-logo-sml.png alt="Alt Text" style="width: 177px;)
 CitrixLab Official Landing Page Est. Sept.2023
 powered by abstract⁷
 
