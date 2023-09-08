@@ -13,13 +13,17 @@
             <input type="email" id="email" placeholder="Enter your email" required>
         </div>
         <div>
-            <input type="submit" value="Sign Up">
+            <input type="submit" value="Sign Up!">
         </div>
     </form>
+    
+    <!-- This div will be used to display the result -->
+    <div id="result"></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('signup-form');
+            const resultDiv = document.getElementById('result'); // Get the result div
 
             form.addEventListener('submit', async function (event) {
                 event.preventDefault();
@@ -46,7 +50,6 @@
 
                     if (!response.ok) {
                         throw new Error('Failed to save email.');
-                        return;
                     }
 
                     /*
@@ -61,7 +64,8 @@
                     document.head.appendChild(scriptElement);
                     */
 
-                    alert('Email saved successfully!');
+                    // Display a success message
+                    resultDiv.innerHTML = '<p>Email saved successfully!</p>';
                 } catch (error) {
                     console.error('An error occurred:', error);
 
