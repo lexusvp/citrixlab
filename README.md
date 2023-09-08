@@ -1,6 +1,8 @@
-# citrixlab
+# citrixlab <img src="[https://img.shields.io/badge/JavaScript-F7DF1E](https://lexusvp.github.io/citrixlab/images/citrixlab-logo-sml.png)?style=for-the-badge&logo=javascript&logoColor=black ">
 CitrixLab Official Landing Page Est. Sept.2023
 powered by abstract⁷
+
+
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/lexusvp/citrixlab?style=for-the-badge)
 
