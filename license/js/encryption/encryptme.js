@@ -47,6 +47,31 @@ async function main() {
     await fs.writeFile(newFileName, htmlContent, 'utf8');
 
     console.log(`HTML file "${newFileName}" created with encrypted data.`);
+
+    // Create an object to represent email data
+    const emailData = {
+      timestamp: Date.now(),
+      fileName: newFileName,
+      encryptedData: encryptedData,
+    };
+
+    // Read existing email data from the "emaildb.json" file, if any
+    const emaildbFilePath = '/database/emaildb.json';
+    let existingEmailData = [];
+    try {
+      const existingData = await fs.readFile(emaildbFilePath, 'utf8');
+      existingEmailData = JSON.parse(existingData);
+    } catch (err) {
+      // Handle errors if the file doesn't exist or is not valid JSON
+      console.error(`Error reading existing email data: ${err.message}`);
+    }
+
+    // Append the new email data to the existing data
+    existingEmailData.push(emailData);
+
+    // Write the updated email data back to the "emaildb.json" file
+    await fs.writeFile(emaildbFilePath, JSON.stringify(existingEmailData, null, 2), 'utf8');
+    console.log(`Data appended to emaildb.json: ${JSON.stringify(emailData, null, 2)}`);
   } catch (err) {
     console.error(`Error: ${err.message}`);
   }
