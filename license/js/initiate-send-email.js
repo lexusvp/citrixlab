@@ -59,3 +59,14 @@ const DataModule = (function () {
     };
 
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait for the DOM to be fully loaded
+    const resultDiv = document.getElementById('resultDiv'); // Replace 'resultDiv' with the actual ID of your target div
+
+    // Call the appropriate function to get the data from DataModule
+    const fetchedData = DataModule.getFetchedData();
+
+    // Set the innerHTML of 'resultDiv' to the fetched data
+    resultDiv.innerHTML = fetchedData;
+});
