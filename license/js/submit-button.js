@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 
 // Module for handling data
@@ -58,7 +57,7 @@ const DataModule = (function () {
 
 })();
 
-// Module for crypto operations
+// Module for writeToEmailDB operations
 const writeToEmailDBModule = (function () {
         // Function to write data to the existing emaildb.JSON file
         function writeToEmailDB(data) {
@@ -79,7 +78,6 @@ const writeToEmailDBModule = (function () {
             return `An error occurred: ${error.message}`;
           }
         }
-
 })();
 
 // Module for crypto operations
@@ -114,17 +112,13 @@ const CryptoModule = (function () {
         let p = 1.0 - q;
         let lambda = z * (q / p);
         let sum = 1.0;
-
         for (let k = 0; k <= z; k++) {
             let poisson = Math.exp(-lambda);
-
             for (let i = 1; i <= k; i++) {
                 poisson *= lambda / i;
             }
-
             sum -= poisson * (1 - Math.pow(q / p, z - k));
         }
-
         return sum;
     }
 
@@ -202,8 +196,7 @@ const FormModule = (function () {
                         &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}`;
 
                     resultDiv.innerHTML = `${dataModule.stringResponseHTML}`;
-                                            
-                        /*
+                    
                                  try {
                                   // Create an object to store the result data
                                   const resultData = {
@@ -218,16 +211,19 @@ const FormModule = (function () {
                                   };
                                 
                                   // Write the result data to the emaildb.JSON file
-                                  const writeResult = DataModule.writeToEmailDB(resultData);
+                                  const writeResult = writeToEmailDBModule.writeToEmailDB(resultData);
                                 
                                   resultDiv.innerHTML = `${writeResult} <br> ${dataModule.stringResponseHTML}`;
                                 } catch (error) {
                                   resultDiv.innerHTML = `JS script error occurred: ${error.message} <br> ${dataModule.stringResponseHTML}`;
-                                }
-                        */
+                                } 
                     } catch (error) {
                 resultDiv.innerHTML = `405 error occurred: ${error.message}`;
             }
         });
     });
 })();
+
+</script>
+</body>
+</html>
