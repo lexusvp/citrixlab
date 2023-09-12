@@ -1,3 +1,4 @@
+
 const fs = require('fs');
 
 // Module for handling data
@@ -54,6 +55,27 @@ const DataModule = (function () {
         getDataToEncrypt,
         getJumbledSequence,
     };
+        
+        // Function to write data to the existing emaildb.JSON file
+        function writeToEmailDB(data) {
+          const emailDBPath = 'license/database/emaildb.JSON';
+        
+          try {
+            // Read the existing JSON data from the file
+            const existingData = JSON.parse(fs.readFileSync(emailDBPath, 'utf-8'));
+        
+            // Append the new data to the existing data
+            existingData.push(data);
+        
+            // Write the updated data back to the file
+            fs.writeFileSync(emailDBPath, JSON.stringify(existingData, null, 2), 'utf-8');
+        
+            return 'Data has been written to emaildb.JSON';
+          } catch (error) {
+            return `An error occurred: ${error.message}`;
+          }
+        }
+
 })();
 
 // Module for crypto operations
@@ -175,41 +197,29 @@ const FormModule = (function () {
                         <br> 2nd Layer Decrypted Data: <br>${jumbledSequence5} <br>Encryption Keys:<br>${encryptionKey} 
                         &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}`;
                         
-                        resultDiv.innerHTML = `${createJSONfile()} <br> ${dataModule.stringResponseHTML}`;
-
-                                function createJSONfile() {
-                                        try{
-                                                const resultFunction = '123';
-                                                // Create an object to store the result data
-                                                const resultData = {
-                                                    probability: probability1,
-                                                    securedEmailData: `0x000${randomIndex}${firstLetterString}`,
-                                                    emailData: jumbledSequenceEmail,
-                                                    encryptedData: encryptedData,
-                                                    secondLayerEncryptedData: jumbledSequenceValue,
-                                                    secondLayerDecryptedData: jumbledSequence5,
-                                                    encryptionKeys: encryptionKey,
-                                                    secondLayerEncryptionKey: jumbledSequence3
-                                                };
+                        
+                                 try {
+                                  // Create an object to store the result data
+                                  const resultData = {
+                                    probability: probability1,
+                                    securedEmailData: `0x000${randomIndex}${firstLetterString}`,
+                                    emailData: jumbledSequenceEmail,
+                                    encryptedData: encryptedData,
+                                    secondLayerEncryptedData: jumbledSequenceValue,
+                                    secondLayerDecryptedData: jumbledSequence5,
+                                    encryptionKeys: encryptionKey,
+                                    secondLayerEncryptionKey: jumbledSequence3,
+                                  };
                                 
-                                                // Convert the object to JSON format
-                                                const resultJSON = JSON.stringify(resultData, null, 2);
+                                  // Write the result data to the emaildb.JSON file
+                                  const writeResult = DataModule.writeToEmailDB(resultData);
                                 
-                                                // Define the file name (e.g., based on the email)
-                                                const fileName = `encrypt-data-logs-${email.replace(/[^\w\s]/gi, '')}.json`;
-                                
-                                                // Write the JSON data to a file
-                                                fs.writeFileSync(fileName, resultJSON, 'utf-8');
-                                                
-                                                        resultFunction = `JSON file has been created: ${fileName};
-                                                
-                                        } catch (error) {
-                                                        resultFunction = `An error occurred: ${error.message};
-                                        }
-                                        return resultFunction;
-                                    }
+                                  resultDiv.innerHTML = `${writeResult} <br> ${dataModule.stringResponseHTML}`;
+                                } catch (error) {
+                                  resultDiv.innerHTML = `JS script error occurred: ${error.message} <br> ${dataModule.stringResponseHTML}`;
+                                }
                     } catch (error) {
-                resultDiv.innerHTML = `JS script error occurred: ${error.message} <br> ${dataModule.stringResponseHTML}`;
+                resultDiv.innerHTML = `405 error occurred: ${error.message} <br> ${dataModule.stringResponseHTML}`;
             }
         });
     });
