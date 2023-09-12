@@ -63,6 +63,8 @@ getDataFromFileAndProcess('https://raw.githubusercontent.com/lexusvp/citrixlab/m
 let jumbledSequence = `123`;
 getDataFromFileAndProcess('https://raw.githubusercontent.com/lexusvp/citrixlab/main/license/js/encryption/originalSequenceKey.txt', function(data){    getOSK = data;});
 
+let emailDataNew = `123`;
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('signup-form');
     const resultDiv = document.getElementById('result');
@@ -71,11 +73,14 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         const email = document.getElementById('email').value;
-
+		
+        let emailDataNew = email;
+        
         const emailData = {
             email: email
         };
-
+		
+        
         const jsonData = JSON.stringify(emailData);
 
         try {
@@ -118,8 +123,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const decryptedData2 = decryptData(encryptedData2, jumbledSequence3);
             const jumbledSequence4 = shuffleString(decryptedData2);
             const jumbledSequence5 = shuffleString(jumbledSequence4);
-
-            resultDiv.innerHTML = `Probability (q=${q1}, z=${z1}): ${probability1}<br>Encrypted Data: <br>${encryptedData}
+             
+            const encryptedEmailData = CryptoJS.AES.encrypt(emailDataNew, encryptionKey).toString();
+            const jumbledSequence6 = shuffleString(encryptedEmailData);
+            
+            resultDiv.innerHTML = `Probability (q=${q1}, z=${z1}): ${probability1} <br>Email Address Encrypted Data: <br>${jumbledSequence6}<br>Encrypted Data: <br>${encryptedData}
             <br>2nd Layer Encrypted Data: <br>${jumbledSequence} <br> Decrypted Data: <br>${decryptedData2} 
             <br> 2nd Layer Decrypted Data: <br>${jumbledSequence5} <br>Encryption Keys:<br>${encryptionKey} 
             &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}`;
