@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         const jsonData = JSON.stringify(emailData);
 
-        try {
+        /*try {
             const response = await fetch('/submit', {
                 method: 'POST',
                 headers: {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('An error occurred:', error);
             resultDiv.innerHTML = `An error occurred: ${fetchedData}`;
-        }
+        }*/
 
         try {
         
