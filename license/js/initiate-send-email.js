@@ -118,19 +118,21 @@ const DataModule = (function () {
 
 // Module for handling form submissions
 const FormModule = (function () {
-         
-             event.preventDefault(); document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('signup-form');
-    const resultDiv = document.getElementById('result');
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('signup-form');
+        const resultDiv = document.getElementById('result');
 
-    // Call the appropriate functions to get the data from DataModule
-    const fetchedData = DataModule.getFetchedData();
-    const dataToEncrypt = DataModule.getDataToEncrypt();
-    const jumbledSequence = DataModule.getJumbledSequence();
+        // Call the appropriate functions to get the data from DataModule
+        const fetchedData = DataModule.getFetchedData();
+        const dataToEncrypt = DataModule.getDataToEncrypt();
+        const jumbledSequence = DataModule.getJumbledSequence();
 
-form.addEventListener('submit', async function (event) { 
-    // Set the innerHTML of 'resultDiv' to the fetched data
-    resultDiv.innerHTML = `Data Available: ${fetchedData}, ${dataToEncrypt}, ${jumbledSequence}`;
-}
-  });
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            // Set the innerHTML of 'resultDiv' to the fetched data
+            resultDiv.innerHTML = `Data Available: ${fetchedData}, ${dataToEncrypt}, ${jumbledSequence}`;
+        });
+    });
 })();
+
