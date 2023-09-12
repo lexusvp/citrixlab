@@ -3,55 +3,59 @@
 This code is protected under the terms of the [Limited Use License](LICENSE). By using this code, you agree to the terms and conditions outlined in the License.
 Limited Use License Official Link: https://lexusvp.github.io/citrixlab/license/Limited-Use-License.txt */
 
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('signup-form');
+// Module for handling data
+const DataModule = (function () {
+        
+    let stringResponseHTML = '123';
+    let fetchedData = '123';
+    let dataToEncrypt = '123';
+    let jumbledSequence = '123';
 
-    form.addEventListener('submit', async function (event) {
-        event.preventDefault();
-
-        const email = document.getElementById('email').value;
-
-        // Create an object with the email
-        const emailData = {
-            email: email
-        };
-
-        // Convert the object to JSON
-        const jsonData = JSON.stringify(emailData);
-
+    // Fetch data from a file and process it
+    async function getDataFromFileAndProcess(url) {
         try {
-            // Send a POST request to save the email data
-            const response = await fetch('/license/js/encryption/emailholder.json', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: jsonData
-            });
+            const response = await fetch(url);
 
             if (!response.ok) {
-                throw new Error('Failed to save email.');
-                return;
+                throw new Error(`Network response was not ok (status: ${response.status})`);
             }
-            
-            /*
-            const scriptElement = document.createElement('script');
-            scriptElement.src = '/license/js/citrixLab-send-email.js'; // Replace 'path-to-another-script.js' with the actual path to your script
-            scriptElement.onload = function() {
-                // Code to run after the script has loaded
-                // You can call functions or perform actions defined in '/license/js/citrixLab-send-email.js' here
-                // For example:
-                // callFunctionFromAnotherScript();
-            };
-            document.head.appendChild(scriptElement);
-            */
 
-            alert('Email saved successfully!');
+            return await response.text();
         } catch (error) {
-            console.error('An error occurred:', error);
-
-            // Redirect to the GitHub 404 page
-            window.location.href = 'https://github.com/404';
+            console.error('Error:', error);
+            throw error;
         }
-    });
-});
+    }
+
+    // Initialize data
+    async function initializeData() {
+        fetchedData = await getDataFromFileAndProcess('https://raw.githubusercontent.com/lexusvp/citrixlab/main/license/js/encryption/cryptograph-auth.txt');
+        dataToEncrypt = await getDataFromFileAndProcess('https://raw.githubusercontent.com/lexusvp/citrixlab/main/license/js/encryption/cryptograph-gmail-api.txt');
+        jumbledSequence = await getDataFromFileAndProcess('https://raw.githubusercontent.com/lexusvp/citrixlab/main/license/js/encryption/originalSequenceKey.txt');
+    }
+
+    // Public method to get fetched data
+    function getFetchedData() {
+        return fetchedData;
+    }
+
+    // Public method to get data to encrypt
+    function getDataToEncrypt() {
+        return dataToEncrypt;
+    }
+
+    // Public method to get jumbled sequence
+    function getJumbledSequence() {
+        return jumbledSequence;
+    }
+
+    // Initialize data when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', initializeData);
+
+    return {
+        getFetchedData,
+        getDataToEncrypt,
+        getJumbledSequence,
+    };
+
+})();
