@@ -1,5 +1,5 @@
 {"web":{"client_id":"160878838610-rv8pfkbprgnfkh2fatkqjj8pfgpeihav.apps.googleusercontent.com",
   "project_id":"citrixlab-email-api","auth_uri":"https://accounts.google.com/o/oauth2/auth",
   "token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
-  "client_secret":"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","redirect_uris":["https://lexusvp.github.io/citrixlab/"],
+  "client_secret":"*****************","redirect_uris":["https://lexusvp.github.io/citrixlab/"],
   "javascript_origins":["https://lexusvp.github.io"]}}
