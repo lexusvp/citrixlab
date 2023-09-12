@@ -116,19 +116,18 @@ const DataModule = (function () {
      }; 
  })();
 
-// Module for handling form submissions 
- const FormModule = (function () { 
-     document.addEventListener('DOMContentLoaded', function () { 
-         const form = document.getElementById('signup-form'); 
-         const resultDiv = document.getElementById('result');
+// Module for handling form submissions
+const FormModule = (function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('signup-form');
+    const resultDiv = document.getElementById('result');
 
-    // Call the appropriate function to get the data from DataModule
+    // Call the appropriate functions to get the data from DataModule
     const fetchedData = DataModule.getFetchedData();
+    const dataToEncrypt = DataModule.getDataToEncrypt();
+    const jumbledSequence = DataModule.getJumbledSequence();
 
     // Set the innerHTML of 'resultDiv' to the fetched data
-    resultDiv.innerHTML = `Data Available:  ${fetchedData}, ${getDataToEncrypt},
-        ${getJumbledSequence} `;
-});
-
-     }; 
- })();
+    resultDiv.innerHTML = `Data Available: ${fetchedData}, ${dataToEncrypt}, ${jumbledSequence}`;
+  });
+})();
