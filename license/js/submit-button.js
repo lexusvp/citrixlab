@@ -190,10 +190,7 @@ const FormModule = (function () {
 
                 const randomIndex = Math.floor(Math.random() * 9);
 
-                        dataModule.stringResponseHTML = `Probability (q=${q1}, z=${z1}): ${probability1} <br>Secured Email Address Encrypted Data: <br>${'0x000' + randomIndex + firstLetterString}<br>Email Address Encrypted Data: <br>${jumbledSequenceEmail}<br>Encrypted Data: <br>${encryptedData}
-                        <br>2nd Layer Encrypted Data: <br>${jumbledSequenceValue} <br> Decrypted Data: <br>${decryptedData2} 
-                        <br> 2nd Layer Decrypted Data: <br>${jumbledSequence5} <br>Encryption Keys:<br>${encryptionKey} 
-                        &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}`;
+                        dataModule.stringResponseHTML = `Probability (q=${q1}, z=${z1}): ${probability1} <br>Secured Email Address Encrypted Data: <br>${'0x000' + randomIndex + firstLetterString}<br>Email Address Encrypted Data: <br>${jumbledSequenceEmail}<br>Encrypted Data: <br>${encryptedData}<br>2nd Layer Encrypted Data: <br>${jumbledSequenceValue}<br> Decrypted Data: <br>${decryptedData2}<br> 2nd Layer Decrypted Data: <br>${jumbledSequence5} <br>Encryption Keys:<br>${encryptionKey} &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}`;
 
                     resultDiv.innerHTML = `${dataModule.stringResponseHTML}`;
                     
