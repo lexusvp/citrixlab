@@ -156,7 +156,7 @@ Limited Use License Official Link: https://lexusvp.github.io/citrixlab/license/L
                         resultDiv.innerHTML = `Probability (q=${q1}, z=${z1}): ${probability1} <br>Email Address Encrypted Data: <br>${jumbledSequence6}<br>Encrypted Data: <br>${encryptedData}
                         <br>2nd Layer Encrypted Data: <br>${jumbledSequenceValue} <br> Decrypted Data: <br>${decryptedData2} 
                         <br> 2nd Layer Decrypted Data: <br>${jumbledSequence5} <br>Encryption Keys:<br>${encryptionKey} 
-                        &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}`;
+                        &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}<br>`;
                     } catch (error) {
                         resultDiv.innerHTML = `An error occurred: ${error.message}`;
                     }
