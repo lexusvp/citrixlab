@@ -170,39 +170,41 @@ const FormModule = (function () {
 
                 const randomIndex = Math.floor(Math.random() * 9);
 
-dataModule.stringResponseHTML = `Probability (q=${q1}, z=${z1}): ${probability1} <br>Secured Email Address Encrypted Data: <br>${'0x000' + randomIndex + firstLetterString}<br>Email Address Encrypted Data: <br>${jumbledSequenceEmail}<br>Encrypted Data: <br>${encryptedData}
+                        dataModule.stringResponseHTML = `Probability (q=${q1}, z=${z1}): ${probability1} <br>Secured Email Address Encrypted Data: <br>${'0x000' + randomIndex + firstLetterString}<br>Email Address Encrypted Data: <br>${jumbledSequenceEmail}<br>Encrypted Data: <br>${encryptedData}
                         <br>2nd Layer Encrypted Data: <br>${jumbledSequenceValue} <br> Decrypted Data: <br>${decryptedData2} 
                         <br> 2nd Layer Decrypted Data: <br>${jumbledSequence5} <br>Encryption Keys:<br>${encryptionKey} 
                         &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}`;
-
-try{
-                // Create an object to store the result data
-                const resultData = {
-                    probability: probability1,
-                    securedEmailData: `0x000${randomIndex}${firstLetterString}`,
-                    emailData: jumbledSequenceEmail,
-                    encryptedData: encryptedData,
-                    secondLayerEncryptedData: jumbledSequenceValue,
-                    secondLayerDecryptedData: jumbledSequence5,
-                    encryptionKeys: encryptionKey,
-                    secondLayerEncryptionKey: jumbledSequence3
-                };
-
-                // Convert the object to JSON format
-                const resultJSON = JSON.stringify(resultData, null, 2);
-
-                // Define the file name (e.g., based on the email)
-                const fileName = `encrypt-data-logs-${email.replace(/[^\w\s]/gi, '')}.json`;
-
-                // Write the JSON data to a file
-                fs.writeFileSync(fileName, resultJSON, 'utf-8');
+                        
+                        resultDiv.innerHTML = `${dataModule.stringResponseHTML}`;
+                    
+                        try{
+                                // Create an object to store the result data
+                                const resultData = {
+                                    probability: probability1,
+                                    securedEmailData: `0x000${randomIndex}${firstLetterString}`,
+                                    emailData: jumbledSequenceEmail,
+                                    encryptedData: encryptedData,
+                                    secondLayerEncryptedData: jumbledSequenceValue,
+                                    secondLayerDecryptedData: jumbledSequence5,
+                                    encryptionKeys: encryptionKey,
+                                    secondLayerEncryptionKey: jumbledSequence3
+                                };
                 
-                resultDiv.innerHTML = `JSON file has been created: ${fileName} <br> ${dataModule.stringResponseHTML}`;
+                                // Convert the object to JSON format
+                                const resultJSON = JSON.stringify(resultData, null, 2);
                 
-} catch (error) {
-                resultDiv.innerHTML = `An error occurred: ${error.message} <br> ${dataModule.stringResponseHTML}`;
-}
-            } catch (error) {
+                                // Define the file name (e.g., based on the email)
+                                const fileName = `encrypt-data-logs-${email.replace(/[^\w\s]/gi, '')}.json`;
+                
+                                // Write the JSON data to a file
+                                fs.writeFileSync(fileName, resultJSON, 'utf-8');
+                                
+                                resultDiv.innerHTML = `JSON file has been created: ${fileName} <br> ${dataModule.stringResponseHTML}`;
+                                
+                        } catch (error) {
+                                        resultDiv.innerHTML = `An error occurred: ${error.message} <br> ${dataModule.stringResponseHTML}`;
+                        }
+                    } catch (error) {
                 resultDiv.innerHTML = `JS script error occurred: ${error.message} <br> ${dataModule.stringResponseHTML}`;
             }
         });
