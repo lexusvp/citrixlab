@@ -21,5 +21,5 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run JavaScript code
-      run: node license/js/submit-button.js  # Replace with the path to your JavaScript file
+  - name: Run JavaScript code
+  run: node license/js/initiate-send-email.js  # Replace with the path to your JavaScript file
