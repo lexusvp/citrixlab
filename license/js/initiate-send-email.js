@@ -118,7 +118,8 @@ const DataModule = (function () {
 
 // Module for handling form submissions
 const FormModule = (function () {
-  document.addEventListener('DOMContentLoaded', function () {
+         form.addEventListener('submit', async function (event) { 
+             event.preventDefault(); document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('signup-form');
     const resultDiv = document.getElementById('result');
 
