@@ -118,7 +118,7 @@ const DataModule = (function () {
 
 // Module for handling form submissions
 const FormModule = (function () {
-         form.addEventListener('submit', async function (event) { 
+         
              event.preventDefault(); document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('signup-form');
     const resultDiv = document.getElementById('result');
@@ -128,7 +128,9 @@ const FormModule = (function () {
     const dataToEncrypt = DataModule.getDataToEncrypt();
     const jumbledSequence = DataModule.getJumbledSequence();
 
+form.addEventListener('submit', async function (event) { 
     // Set the innerHTML of 'resultDiv' to the fetched data
     resultDiv.innerHTML = `Data Available: ${fetchedData}, ${dataToEncrypt}, ${jumbledSequence}`;
+}
   });
 })();
