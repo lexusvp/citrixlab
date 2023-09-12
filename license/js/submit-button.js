@@ -55,7 +55,11 @@ const DataModule = (function () {
         getDataToEncrypt,
         getJumbledSequence,
     };
-        
+
+})();
+
+// Module for crypto operations
+const writeToEmailDBModule = (function () {
         // Function to write data to the existing emaildb.JSON file
         function writeToEmailDB(data) {
           const emailDBPath = 'license/database/emaildb.JSON';
