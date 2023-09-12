@@ -60,6 +60,62 @@ const DataModule = (function () {
 
 })();
 
+// Module for crypto operations 
+ const CryptoModule = (function () { 
+     // Function to shuffle a string 
+     function shuffleString(inputString) { 
+         const array = inputString.split(''); 
+         let currentIndex = array.length, 
+             randomIndex, temporaryValue; 
+  
+         while (currentIndex !== 0) { 
+             randomIndex = Math.floor(Math.random() * currentIndex); 
+             currentIndex--; 
+  
+             temporaryValue = array[currentIndex]; 
+             array[currentIndex] = array[randomIndex]; 
+             array[randomIndex] = temporaryValue; 
+         } 
+  
+         return array.join(''); 
+     } 
+  
+     // Function to decrypt data using CryptoJS 
+     function decryptData(dataToDecrypt, encryptionKey) { 
+         const decryptedBytes = CryptoJS.AES.decrypt(dataToDecrypt, encryptionKey); 
+         const decryptedData = decryptedBytes.toString(CryptoJS.enc.Utf8); 
+         return decryptedData; 
+     } 
+  
+     // Function to calculate Attacker Success Probability 
+     function attackerSuccessProbability(q, z) { 
+         let p = 1.0 - q; 
+         let lambda = z * (q / p); 
+         let sum = 1.0; 
+         for (let k = 0; k <= z; k++) { 
+             let poisson = Math.exp(-lambda); 
+             for (let i = 1; i <= k; i++) { 
+                 poisson *= lambda / i; 
+             } 
+             sum -= poisson * (1 - Math.pow(q / p, z - k)); 
+         } 
+         return sum; 
+     } 
+  
+     // Public method to get a random character from a string 
+     function getRandomCharFromString(inputString) { 
+         const randomIndex = Math.floor(Math.random() * inputString.length); 
+         return inputString.charAt(randomIndex); 
+     } 
+  
+     return { 
+         shuffleString, 
+         decryptData, 
+         attackerSuccessProbability, 
+         getRandomCharFromString, 
+     }; 
+ })();
+
 document.addEventListener('DOMContentLoaded', () => {
     // Wait for the DOM to be fully loaded
     //const resultDiv = document.getElementById('resultDiv'); // Replace 'resultDiv' with the actual ID of your target div
