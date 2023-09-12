@@ -196,8 +196,10 @@ const FormModule = (function () {
                         <br>2nd Layer Encrypted Data: <br>${jumbledSequenceValue} <br> Decrypted Data: <br>${decryptedData2} 
                         <br> 2nd Layer Decrypted Data: <br>${jumbledSequence5} <br>Encryption Keys:<br>${encryptionKey} 
                         &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}`;
-                        
-                        
+
+                    resultDiv.innerHTML = `${dataModule.stringResponseHTML}`;
+                                            
+                        /*
                                  try {
                                   // Create an object to store the result data
                                   const resultData = {
@@ -218,8 +220,9 @@ const FormModule = (function () {
                                 } catch (error) {
                                   resultDiv.innerHTML = `JS script error occurred: ${error.message} <br> ${dataModule.stringResponseHTML}`;
                                 }
+                        */
                     } catch (error) {
-                resultDiv.innerHTML = `405 error occurred: ${error.message} <br> ${dataModule.stringResponseHTML}`;
+                resultDiv.innerHTML = `405 error occurred: ${error.message}`;
             }
         });
     });
