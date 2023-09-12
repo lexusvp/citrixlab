@@ -91,10 +91,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error(fetchedData);
             }
 
-            resultDiv.innerHTML = fetchedData;
+            resultDiv.innerHTML = `Failed to get fetch: ${fetchedData}`;
         } catch (error) {
             console.error('An error occurred:', error);
-            resultDiv.innerHTML = fetchedData;
+            resultDiv.innerHTML = `An error occurred: ${fetchedData}`;
         }
 
         try {
