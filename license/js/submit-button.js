@@ -116,8 +116,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const encryptedData2 = CryptoJS.AES.encrypt(jumbledSequence2, jumbledSequence3).toString();
 
             const decryptedData2 = decryptData(encryptedData2, jumbledSequence3);
+            const jumbledSequence4 = shuffleString(decryptedData2);
 
-            resultDiv.innerHTML = `Probability (q=${q1}, z=${z1}): ${probability1}<br>Encrypted Data: <br>${encryptedData}<br>2nd Layer Encrypted Data: <br>${jumbledSequence} <br> Decrypted Data: <br>${decryptedData2} <br> 2nd Layer Decrypted Data: <br>${jumbledSequence2} <br>Encryption Keys:<br>${encryptionKey} &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}`;
+            resultDiv.innerHTML = `Probability (q=${q1}, z=${z1}): ${probability1}<br>Encrypted Data: <br>${encryptedData}
+            <br>2nd Layer Encrypted Data: <br>${jumbledSequence} <br> Decrypted Data: <br>${decryptedData2} 
+            <br> 2nd Layer Decrypted Data: <br>${jumbledSequence4} <br>Encryption Keys:<br>${encryptionKey} 
+            &  ${decryptedData}<br>2nd Layer Encryption Key:<br>${jumbledSequence3}`;
+            
         } catch (error) {
             resultDiv.innerHTML = `An error occurred: ${error.message}`;
         }
