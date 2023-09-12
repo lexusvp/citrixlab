@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const decryptedData2 = decryptData(encryptedData2, jumbledSequence3);
             const jumbledSequence4 = shuffleString(decryptedData2);
+            let jumbledSequence4 = shuffleString(jumbledSequence4);
 
             resultDiv.innerHTML = `Probability (q=${q1}, z=${z1}): ${probability1}<br>Encrypted Data: <br>${encryptedData}
             <br>2nd Layer Encrypted Data: <br>${jumbledSequence} <br> Decrypted Data: <br>${decryptedData2} 
